@@ -1,12 +1,12 @@
-package com.example.drinkapp.db.drinkDb
+package com.example.drinkapp.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.drinkapp.dao.DrinkDao
-import com.example.drinkapp.model.DbModel
-import com.example.drinkapp.model.DrinkModel
+import com.example.drinkapp.model_Room.DbModel
+import com.example.drinkapp.model_Room.DrinkModel
 
 @Database(entities = [DbModel::class,DrinkModel::class], version = 1)
 abstract class DrinkDatabase : RoomDatabase() {

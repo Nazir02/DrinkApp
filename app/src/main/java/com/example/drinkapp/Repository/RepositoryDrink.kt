@@ -1,9 +1,8 @@
 package com.example.drinkapp.Repository
 
 import androidx.lifecycle.LiveData
-import com.example.drinkapp.dao.DrinkDao
-import com.example.drinkapp.model.DbModel
-import com.example.drinkapp.model.DrinkModel
+import com.example.drinkapp.model_Room.DbModel
+import com.example.drinkapp.model_Room.DrinkModel
 
 interface RepositoryDrink {
     val allDB: LiveData<List<DbModel>>

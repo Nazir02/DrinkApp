@@ -2,8 +2,8 @@ package com.example.drinkapp.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.drinkapp.model.DbModel
-import com.example.drinkapp.model.DrinkModel
+import com.example.drinkapp.model_Room.DbModel
+import com.example.drinkapp.model_Room.DrinkModel
 
 @Dao
 interface DrinkDao {
@@ -27,5 +27,6 @@ interface DrinkDao {
     fun getAllDrink(): LiveData<List<DrinkModel>>
 
     @Query("SELECT * from drink WHERE drinkCategories = :filter")
-     fun getItemsFiltered(filter: String): LiveData<List<DrinkModel>>
+    fun getItemsFiltered(filter: String): LiveData<List<DrinkModel>>
 }
+

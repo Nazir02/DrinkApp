@@ -1,39 +1,38 @@
 package com.example.drinkapp.view
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.util.Log
 import androidx.annotation.RequiresApi
 import com.example.drinkapp.Repository.RepositoryDrink
 
 lateinit var REPOSITORY: RepositoryDrink
 
-@SuppressLint("MissingPermission")
 @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-fun isConnectedNewApi(context: Context): Boolean {
-    val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    val capabilities = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        cm.getNetworkCapabilities(cm.activeNetwork)
-    } else {
-        TODO("VERSION.SDK_INT < M")
+fun isOnline(context: Context): Boolean {
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    if (connectivityManager != null) {
+        val capabilities =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
+            } else {
+                TODO("VERSION.SDK_INT < M")
+            }
+        if (capabilities != null) {
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_CELLULAR")
+                return true
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_WIFI")
+                return true
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                Log.i("Internet", "NetworkCapabilities.TRANSPORT_ETHERNET")
+                return true
+            }
+        }
     }
-    return capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) == true
-}
-
-@SuppressLint("MissingPermission")
-@Suppress("DEPRECATION")
-fun isConnectedOld(context: Context): Boolean? {
-    val connManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    val networkInfo = connManager.activeNetworkInfo
-    return networkInfo?.isConnected
-}
-
- fun isConnected(context: Context): Boolean? {
-    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        isConnectedNewApi(context)
-    } else {
-        isConnectedOld(context)
-    }
+    return false
 }

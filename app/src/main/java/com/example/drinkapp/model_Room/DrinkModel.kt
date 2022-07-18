@@ -1,4 +1,4 @@
-package com.example.drinkapp.model
+package com.example.drinkapp.model_Room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -7,12 +7,13 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "drink")
 data class DrinkModel(
     @PrimaryKey(autoGenerate = true)
-    var id: Int = 0,
+    var id:Int=0,
+    @ColumnInfo
+    var idD:String,
     @ColumnInfo
     var drinkCategories: String,
     @ColumnInfo
     var drinkString: String,
     @ColumnInfo
     val strDrinkThumb: String
-
 )

@@ -3,15 +3,11 @@ package com.example.drinkapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.drinkapp.model.DbModel
 import com.example.drinkapp.view.CategoryFragment
 import com.example.drinkapp.view.FavoriteFragment
 import com.example.drinkapp.view.HistoryFragment
 import com.example.drinkapp.view.SettingsFragment
-import com.example.drinkapp.vm.CachViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 

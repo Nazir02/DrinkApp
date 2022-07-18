@@ -1,11 +1,9 @@
 package com.example.drinkapp.vm
 
-import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.drinkapp.model.DbModel
-import com.example.drinkapp.model.DrinkModel
+import com.example.drinkapp.model_Room.DbModel
+import com.example.drinkapp.model_Room.DrinkModel
 import com.example.drinkapp.view.REPOSITORY
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

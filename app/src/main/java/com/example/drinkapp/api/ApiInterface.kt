@@ -1,8 +1,8 @@
-package com.example.drinkapp.model
+package com.example.drinkapp.api
 
-import com.example.drinkapp.db.categories.categories
-import com.example.drinkapp.db.details.detail
-import com.example.drinkapp.db.drinksCoctel.Cocktail
+import com.example.drinkapp.models.categories.categories
+import com.example.drinkapp.models.details.detail
+import com.example.drinkapp.models.drinksCoctel.Cocktail
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

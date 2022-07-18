@@ -1,6 +1,6 @@
-package com.example.drinkapp.db.Search
+package com.example.drinkapp.models.details
 
-data class SearchDrink(
+data class DrinkDetail(
     val dateModified: String,
     val idDrink: String,
     val strAlcoholic: String,
@@ -23,9 +23,9 @@ data class SearchDrink(
     val strIngredient2: String,
     val strIngredient3: String,
     val strIngredient4: String,
-    val strIngredient5: String,
-    val strIngredient6: String,
-    val strIngredient7: String,
+    val strIngredient5: Any,
+    val strIngredient6: Any,
+    val strIngredient7: Any,
     val strIngredient8: Any,
     val strIngredient9: Any,
     val strInstructions: String,
@@ -44,10 +44,10 @@ data class SearchDrink(
     val strMeasure15: Any,
     val strMeasure2: String,
     val strMeasure3: String,
-    val strMeasure4: String,
-    val strMeasure5: String,
-    val strMeasure6: String,
-    val strMeasure7: String,
+    val strMeasure4: Any,
+    val strMeasure5: Any,
+    val strMeasure6: Any,
+    val strMeasure7: Any,
     val strMeasure8: Any,
     val strMeasure9: Any,
     val strTags: String,

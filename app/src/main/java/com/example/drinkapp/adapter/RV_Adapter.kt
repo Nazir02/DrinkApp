@@ -9,13 +9,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.drinkapp.R
-import com.example.drinkapp.db.drinksCoctel.Cocktail
-import com.example.drinkapp.model.DrinkModel
+import com.example.drinkapp.model_Room.DrinkModel
+import com.example.drinkapp.models.drinksCoctel.DrinkCoctel
 import com.example.drinkapp.view.DetailFragment
 import com.squareup.picasso.Picasso
 
 
-class RV_Adapter(drinks: List<DrinkModel>) : RecyclerView.Adapter<RV_Adapter.ViewHolder>() {
+class RV_Adapter(drinks: List<DrinkCoctel>) : RecyclerView.Adapter<RV_Adapter.ViewHolder>() {
     private var rvDrink = drinks
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -33,7 +33,7 @@ class RV_Adapter(drinks: List<DrinkModel>) : RecyclerView.Adapter<RV_Adapter.Vie
         holder.itemView.setOnClickListener { v ->
             val activity = v?.context as AppCompatActivity
             val bundle = Bundle()
-            bundle.putString("id", rvDrink[position].drinkString)
+            bundle.putString("id", rvDrink[position].idDrink)
             bundle.putString("img", rvDrink[position].strDrinkThumb)
             val fragment = DetailFragment()
             fragment.arguments = bundle
@@ -41,7 +41,7 @@ class RV_Adapter(drinks: List<DrinkModel>) : RecyclerView.Adapter<RV_Adapter.Vie
                 .replace(R.id.nav_host_fragment,fragment).addToBackStack(null).commit()
         }
 
-        holder.nameDrink.text = rvDrink[position].drinkString
+        holder.nameDrink.text = rvDrink[position].strDrink
         val picasso = Picasso.get()
         picasso.setIndicatorsEnabled(true)
         picasso.load(rvDrink[position].strDrinkThumb).into(holder.imagItem)
